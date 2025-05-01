@@ -2,8 +2,13 @@ version: "3"
 
 services:
   python:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: python-container
     volumes:
-      - ./src:/app
+      - .:/app
     tty: true
     stdin_open: true
+    ports:
+      - "8000:8000"
